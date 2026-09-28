@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #f7f1e3;
+  --color-ink: #151515;
+  --color-cream: #fffdfc;
+  --color-pink: #ff5caa;
+  --color-yellow: #f5e642;
+  --color-yellow-alt: #ffd84d;
+  --color-mint: #66e3b4;
+  --color-blue: #3d8bff;
+  --color-accent-blue: #0088ff;
+  --color-muted: #5f5a52;
+  --color-markdown: #5146e5;
+  --color-linkedin: #0a66c2;
+  --color-youtube: #ff0033;
+  --color-youtube-shadow: #ff2d55;
+  --color-github-shadow: #d5cfcf;
+  --color-instagram: #833ab4;
+  --color-instagram-shadow: #9b5cc5;
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-code: var(--font-courier-prime), ui-monospace, monospace;
+  --font-tag-mono: var(--font-roboto-mono), ui-monospace, monospace;
+}
+
+.btn-press {
+  box-shadow: 4px 4px 0 0 var(--color-ink);
+  /* Keep AOS opacity/transform timing, and animate the press on top of it. */
+  transition:
+    translate 100ms,
+    box-shadow 100ms,
+    opacity 0.6s,
+    transform 0.6s !important;
+}
+
+.btn-press:hover {
+  translate: 0 -0.125rem;
+  box-shadow: 4px 6px 0 0 var(--color-ink);
+}
+
+.btn-press:active {
+  translate: 3px 3px;
+  box-shadow: 1px 2px 0 0 var(--color-ink);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* background-color: var(--color-background); */
+  background-color: #151515;
+  color: var(--color-ink);
+}

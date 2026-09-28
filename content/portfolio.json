@@ -1,0 +1,235 @@
+{
+  "title": "Fadhil/Dev",
+  "sections": [
+    {
+      "comments": ["Hello world"],
+      "title": "SYED AHMAD FADHIL",
+      "description": "const passion = 'Just a guy who loves to code and build things.'",
+      "links": [
+        {
+          "title": "LinkedIn",
+          "url": "https://www.linkedin.com/in/syedahmadfadhil/"
+        }
+      ]
+    },
+    {
+      "sectionNumber": 1,
+      "sectionName": "PROFILE.README",
+      "sectionTitle": "ABOUT ME",
+      "sectionTitleStyles": {
+        "fontWeight": "bold",
+        "fontSize": "48px",
+        "color": "#000000",
+        "fontFamily": "Space Grotesk"
+      },
+      "content": "I’m a Malaysian software developer who enjoys building things from scratch. I work mainly with React Native, ReactJS, and Node.js, building practical mobile and web experiences. My experience spans production apps, backend services, integrations, and shipping software in the real world. I’m continuously expanding my skills and recently started diving deeper into TypeScript. I enjoy experimenting with new ideas, building side projects, and turning concepts into products. I believe good software doesn’t need to be complicated. Build with purpose, keep it simple, and ship it."
+    },
+    {
+      "sectionNumber": 2,
+      "sectionName": "TOOLBOX.CONFIG",
+      "sectionTitle": "These are some languages/frameworks/tools that I'm familiar with:",
+      "sectionTitleStyles": {
+        "fontWeight": "regular",
+        "fontSize": "30px",
+        "color": "#000000",
+        "fontFamily": "Space Grotesk"
+      },
+      "skills": [
+        {
+          "label": "mobile.framework",
+          "title": "React Native",
+          "icon": "react-native",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "color": "#000000"
+          }
+        },
+        {
+          "label": "language.java",
+          "title": "Java",
+          "icon": "java",
+          "style": {
+            "backgroundColor": "#FF5CAA",
+            "color": "#000000"
+          }
+        },
+        {
+          "label": "platform.android",
+          "title": "Android",
+          "icon": "android",
+          "style": {
+            "backgroundColor": "#66E3B4",
+            "color": "#000000"
+          }
+        },
+        {
+          "label": "language.js",
+          "title": "JavaScript",
+          "icon": "javascript",
+          "style": {
+            "backgroundColor": "#F5E642",
+            "color": "#000000"
+          }
+        },
+        {
+          "label": "runtime.node",
+          "title": "Node.js",
+          "icon": "nodejs",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "color": "#000000"
+          }
+        },
+        {
+          "label": "cloud.firebase",
+          "title": "Firebase",
+          "icon": "firebase",
+          "style": {
+            "backgroundColor": "#FF5CAA",
+            "color": "#000000"
+          }
+        },
+        {
+          "label": "language.ts",
+          "title": "TypeScript",
+          "icon": "typescript",
+          "style": {
+            "backgroundColor": "#3D8BFF",
+            "color": "#000000"
+          }
+        }
+      ]
+    },
+    {
+      "sectionNumber": 3,
+      "sectionName": "OPEN EDITORS",
+      "sectionTitle": "SELECTED PROJECTS",
+      "sectionTitleStyles": {
+        "fontWeight": "bold",
+        "fontSize": "48px",
+        "color": "#000000",
+        "fontFamily": "Space Grotesk"
+      },
+      "content": [
+        {
+          "number": "01",
+          "year": "2017",
+          "filename": "non-resident.java",
+          "description": "This is my very first project I've created. The purpose of this app is to ease the students in finding a suitable house to rent during study period. This app should be more reliable than other house finding apps because the data stored (i.e houses and users data) are managed by the admins.",
+          "title": "Non-Resident Digital Project",
+          "skills": ["Java", "Android", "Firebase"],
+          "links": [
+            {
+              "type": "youtube",
+              "icon": "youtube",
+              "link": "https://www.youtube.com/watch?v=XP8Wzn-0Y3k&t=5s"
+            }
+          ],
+          "windowStyles": {
+            "backgroundColor": "#FF5CAA"
+          }
+        },
+        {
+          "number": "02",
+          "year": "2018",
+          "filename": "rating-app.java",
+          "title": "Restaurant Rating App",
+          "description": "This app is about rating restaurants based on their services.",
+          "skills": ["Java", "Android", "Firebase"],
+          "links": [
+            {
+              "type": "youtube",
+              "icon": "youtube",
+              "link": "https://www.youtube.com/shorts/ZCgvYwu59Ks"
+            }
+          ],
+          "windowStyles": {
+            "backgroundColor": "#FFD84D"
+          }
+        },
+        {
+          "number": "03",
+          "year": "2020",
+          "filename": "weather.jsx",
+          "title": "Weather App",
+          "description": "This was an assignment during my Management Trainee Developer programme. This is a simple website where user can check weather on their city. I used OpenWeatherMap API to get the weather data.",
+          "skills": ["React", "JavaScript"],
+          "links": [
+            {
+              "type": "youtube",
+              "icon": "youtube",
+              "link": "https://www.youtube.com/watch?v=Vc7FMcUmegs"
+            }
+          ],
+          "windowStyles": {
+            "backgroundColor": "#3D8BFF"
+          }
+        },
+        {
+          "number": "04",
+          "year": "2022",
+          "filename": "wedding.jsx",
+          "title": "E-Wedding Invitation",
+          "description": "This is my latest project, my e-card wedding invitation. I code this using ReactJS together with Firebase Hosting and Firestore to manage this site. Firestore is to store RSVP and Comments data.",
+          "skills": ["React", "Javascript", "Firebase"],
+          "links": [
+            {
+              "type": "youtube",
+              "icon": "youtube",
+              "link": "https://www.youtube.com/watch?v=cibuSRK_8FA"
+            },
+            {
+              "type": "open-website",
+              "icon": "external-link",
+              "link": ""
+            }
+          ],
+          "windowStyles": {
+            "backgroundColor": "#66E3B4"
+          }
+        }
+      ]
+    },
+    {
+      "sectionNumber": 4,
+      "sectionName": "CONTACT.SH",
+      "sectionTitle": "LET'S CONNECT !",
+      "sectionTitleStyles": {
+        "fontWeight": "bold",
+        "fontSize": "48px",
+        "color": "#FFFDFC",
+        "fontFamily": "Space Grotesk"
+      },
+      "sectionDescription": "Want to share ideas? Feel free to get in touch with me. I am always open to discuss anything related to JavaScript, ReactJS, ReactNative, Mobile Development, and Firebase ! :D",
+      "sectionDescriptionStyles": {
+        "fontWeight": "regular",
+        "fontSize": "30px",
+        "color": "#FFFDFC",
+        "fontFamily": "Space Grotesk"
+      },
+      "email": "safadhildev@gmail.com",
+      "links": [
+        {
+          "label": "LinkedIn",
+          "url": "https://www.linkedin.com/in/syedahmadfadhil",
+          "style": { "backgroundColor": "#0A66C2", "dropShadowColor": "#0088FF" }
+        },
+        {
+          "label": "YouTube",
+          "url": "https://www.youtube.com/@safadhildev",
+          "style": { "backgroundColor": "#FF0033", "dropShadowColor": "#FF2D55" }
+        },
+        {
+          "label": "Github",
+          "url": "https://github.com/safadhildev",
+          "style": { "backgroundColor": "#FFFDFC", "dropShadowColor": "#D5CFCF" }
+        },
+        {
+          "label": "Instagram",
+          "url": "https://www.instagram.com/safadhildev",
+          "style": { "backgroundColor": "#833AB4", "dropShadowColor": "#9B5CC5" }
+        }
+      ]
+    }
+  ]
+}
