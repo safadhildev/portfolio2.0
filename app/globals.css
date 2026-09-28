@@ -47,10 +47,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   /* background-color: var(--color-background); */
   background-color: #151515;
   color: var(--color-ink);
+  overflow-x: hidden;
 }
