@@ -181,7 +181,7 @@
             {
               "type": "open-website",
               "icon": "external-link",
-              "link": ""
+              "link": "https://fadhil-wedding.web.app/"
             }
           ],
           "windowStyles": {
@@ -212,22 +212,34 @@
         {
           "label": "LinkedIn",
           "url": "https://www.linkedin.com/in/syedahmadfadhil",
-          "style": { "backgroundColor": "#0A66C2", "dropShadowColor": "#0088FF" }
+          "style": {
+            "backgroundColor": "#0A66C2",
+            "dropShadowColor": "#0088FF"
+          }
         },
         {
           "label": "YouTube",
           "url": "https://www.youtube.com/@safadhildev",
-          "style": { "backgroundColor": "#FF0033", "dropShadowColor": "#FF2D55" }
+          "style": {
+            "backgroundColor": "#FF0033",
+            "dropShadowColor": "#FF2D55"
+          }
         },
         {
           "label": "Github",
           "url": "https://github.com/safadhildev",
-          "style": { "backgroundColor": "#FFFDFC", "dropShadowColor": "#D5CFCF" }
+          "style": {
+            "backgroundColor": "#FFFDFC",
+            "dropShadowColor": "#D5CFCF"
+          }
         },
         {
           "label": "Instagram",
           "url": "https://www.instagram.com/safadhildev",
-          "style": { "backgroundColor": "#833AB4", "dropShadowColor": "#9B5CC5" }
+          "style": {
+            "backgroundColor": "#833AB4",
+            "dropShadowColor": "#9B5CC5"
+          }
         }
       ]
     }

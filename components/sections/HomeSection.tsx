@@ -17,6 +17,11 @@ const LINE_NUMBERS = [
   "08",
   "09",
   "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
 ];
 
 function renderCodeLine(description: string) {
@@ -77,7 +82,12 @@ export function HomeSection({ hero }: HomeSectionProps) {
                   data-aos="zoom-in"
                   className="btn-press flex h-[42px] items-center gap-1.5 rounded-md border-2 border-ink bg-linkedin px-4 font-mono text-[13px] font-bold text-cream"
                 >
-                  <Icon className="md:hidden" name="linkedin" size={18} alt="" />
+                  <Icon
+                    className="md:hidden"
+                    name="linkedin"
+                    size={18}
+                    alt=""
+                  />
                   <Icon
                     className="hidden md:block"
                     name="external-link"

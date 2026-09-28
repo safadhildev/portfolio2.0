@@ -20,7 +20,7 @@ export function AboutSection({ about }: AboutSectionProps) {
           </h2>
           <p className="font-mono text-sm text-muted">$ whoami --verbose</p>
         </div>
-        <div className="flex-1" data-aos="fade-up" data-aos-delay="100">
+        <div className="flex-1" data-aos="zoom-in-left" data-aos-delay="100">
           <WindowChrome filename="README.md" accentColor="#66E3B4" bodyClassName="flex flex-col gap-3 p-4 md:gap-5 md:p-[34px]">
             <p className="font-mono text-xs font-bold text-markdown md:text-sm">
               ## developer_profile

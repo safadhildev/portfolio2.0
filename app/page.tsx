@@ -16,9 +16,7 @@ export default function Home() {
     <>
       <IdeNavigation />
       <FileExplorerSidebar />
-      <main
-        className={`mx-auto w-full max-w-[1920px] px-8 pb-10 pt-6 md:px-8 md:pb-20 md:pt-10 xl:ml-[300px] xl:mr-8 xl:w-auto xl:max-w-none xl:px-0 xl:pb-[10px] xl:pt-[85px]`}
-      >
+      <main className="bg-background mx-auto w-full max-w-[1920px] px-8 pb-10 pt-6 md:px-8 md:pb-20 md:pt-10 xl:ml-[300px] xl:mr-8 xl:w-auto xl:max-w-none xl:px-0 xl:pb-[10px] xl:pt-[85px]">
         <HomeSection hero={content.hero} />
         <AboutSection about={content.about} />
         <SkillsSection skills={content.skills} />

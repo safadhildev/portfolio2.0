@@ -6,14 +6,19 @@ const NAV_LINKS = [
 
 export function IdeNavigation() {
   return (
-    <header className="sticky top-0 z-40 h-14 w-full bg-ink xl:fixed xl:inset-x-0 xl:top-0 xl:h-[72px]">
+    <header
+      data-aos="slide-down"
+      className="sticky top-0 z-40 h-14 w-full bg-ink xl:fixed xl:inset-x-0 xl:top-0 xl:h-[72px]"
+    >
       {/* Mobile / narrow-desktop nav: logo + handle + nav links */}
       <div className="flex h-full items-center justify-between px-4 xl:hidden">
         <div className="flex items-center gap-2">
           <div className="flex size-8 items-center justify-center rounded border-2 border-cream bg-yellow-alt">
             <span className="font-mono text-xs font-bold text-ink">SAF</span>
           </div>
-          <span className="font-mono text-xs font-bold text-cream">fadhil.dev</span>
+          <span className="font-mono text-xs font-bold text-cream">
+            fadhil.dev
+          </span>
         </div>
         <nav className="flex items-center gap-3 font-mono text-xs font-bold">
           {NAV_LINKS.map((link, i) => (
