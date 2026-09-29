@@ -6,6 +6,7 @@ import {
   Roboto_Mono,
 } from "next/font/google";
 import { AosInit } from "@/components/AosInit";
+import { SectionHashSync } from "@/components/SectionHashSync";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -52,6 +53,7 @@ export default function RootLayout({
         className={`${robotoMono.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${courierPrime.variable} font-display antialiased text-ink`}
       >
         <AosInit />
+        <SectionHashSync />
         <div className="bg-background">{children}</div>
       </body>
     </html>

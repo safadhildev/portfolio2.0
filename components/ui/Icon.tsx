@@ -14,10 +14,7 @@ function hasStroke(svg: string) {
 }
 
 function withStrokeColor(svg: string, size: number, color: string) {
-  const stroked = svg.replace(
-    /stroke="(?!none\b)[^"]*"/g,
-    `stroke="${color}"`,
-  );
+  const stroked = svg.replace(/stroke="(?!none\b)[^"]*"/g, `stroke="${color}"`);
   return stroked.replace(/<svg\b([^>]*)>/, (_, attrs: string) => {
     const next = attrs
       .replace(/\swidth="[^"]*"/, "")
@@ -42,8 +39,14 @@ export function Icon({
         aria-label={alt || undefined}
         aria-hidden={alt ? undefined : true}
         className={`inline-block shrink-0 ${className ?? ""}`}
-        style={{ width: size, height: size }}
-        dangerouslySetInnerHTML={{ __html: withStrokeColor(source, size, color) }}
+        style={
+          size
+            ? { width: size, height: size }
+            : { width: "100%", height: "100%" }
+        }
+        dangerouslySetInnerHTML={{
+          __html: withStrokeColor(source, size, color),
+        }}
       />
     );
   }

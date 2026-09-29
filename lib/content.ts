@@ -1,4 +1,8 @@
 import rawContent from "@/content/portfolio.json";
+import { pickSections, validateExperience } from "./content-schema";
+import type { SectionType } from "./content-schema";
+
+export type { SectionType };
 
 export interface TextStyle {
   fontWeight: string;
@@ -13,6 +17,7 @@ export interface HeroLink {
 }
 
 export interface HeroContent {
+  type: "hero";
   comments: string[];
   title: string;
   description: string;
@@ -30,6 +35,7 @@ export interface Skill {
 }
 
 export interface AboutContent {
+  type: "about";
   sectionNumber: number;
   sectionName: string;
   sectionTitle: string;
@@ -38,6 +44,7 @@ export interface AboutContent {
 }
 
 export interface SkillsContent {
+  type: "skills";
   sectionNumber: number;
   sectionName: string;
   sectionTitle: string;
@@ -64,7 +71,28 @@ export interface Project {
   };
 }
 
+export interface ExperienceEntry {
+  start: string;
+  end: string | null;
+  title: string;
+  company: string;
+  filename: string;
+  description?: string;
+  responsibilities: string[];
+  skills: string[];
+}
+
+export interface ExperienceContent {
+  type: "experience";
+  sectionNumber: number;
+  sectionName: string;
+  sectionTitle: string;
+  sectionTitleStyles: TextStyle;
+  content: ExperienceEntry[];
+}
+
 export interface ProjectsContent {
+  type: "projects";
   sectionNumber: number;
   sectionName: string;
   sectionTitle: string;
@@ -82,6 +110,7 @@ export interface ContactLink {
 }
 
 export interface ContactContent {
+  type: "contact";
   sectionNumber: number;
   sectionName: string;
   sectionTitle: string;
@@ -97,13 +126,19 @@ export interface PortfolioContent {
   hero: HeroContent;
   about: AboutContent;
   skills: SkillsContent;
+  experience: ExperienceContent;
   projects: ProjectsContent;
   contact: ContactContent;
 }
 
-type RawSections = [HeroContent, AboutContent, SkillsContent, ProjectsContent, ContactContent];
-
-const [hero, about, skills, projects, contact] = rawContent.sections as unknown as RawSections;
+// Sections are resolved by their `type` key, not array position; a bad JSON throws at build.
+const sections = pickSections(rawContent.sections);
+const hero = sections.hero as HeroContent;
+const about = sections.about as AboutContent;
+const skills = sections.skills as SkillsContent;
+const experience = validateExperience(sections.experience);
+const projects = sections.projects as ProjectsContent;
+const contact = sections.contact as ContactContent;
 
 export function getPortfolioContent(): PortfolioContent {
   return {
@@ -111,6 +146,7 @@ export function getPortfolioContent(): PortfolioContent {
     hero,
     about,
     skills,
+    experience,
     projects,
     contact,
   };

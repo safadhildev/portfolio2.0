@@ -10,7 +10,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
     <section
       id="projects"
-      className="py-10 md:py-14 md:scroll-mt-[30px]"
+      className="py-10 md:py-10 md:scroll-mt-[30px]"
     >
       <div
         className="mb-8 flex flex-wrap items-end justify-between gap-3 md:mb-11"

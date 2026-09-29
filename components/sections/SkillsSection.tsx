@@ -8,7 +8,7 @@ interface SkillsSectionProps {
 
 export function SkillsSection({ skills }: SkillsSectionProps) {
   return (
-    <div className="flex flex-col gap-6 py-6 md:gap-8 md:py-8">
+    <div className="flex flex-col gap-6 md:gap-8">
       <div className="flex flex-col gap-3" data-aos="fade-up">
         <SectionLabel
           number={skills.sectionNumber}
@@ -28,7 +28,10 @@ export function SkillsSection({ skills }: SkillsSectionProps) {
             data-aos="flip-right"
             data-aos-delay={Math.min(index * 100, 500)}
           >
-            <SkillChip skill={skill} />
+            <SkillChip
+              skill={skill}
+              tooltipAlign={index >= skills.skills.length / 2 ? "end" : "start"}
+            />
           </div>
         ))}
       </div>
