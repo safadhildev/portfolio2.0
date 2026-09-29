@@ -1,6 +1,9 @@
+"use client";
+
 import { WindowChrome } from "@/components/ui/WindowChrome";
 import { Icon } from "@/components/ui/Icon";
 import type { HeroContent } from "@/lib/content";
+import { ParticlesBg } from "@/components/ui/ParticlesBg";
 
 interface HomeSectionProps {
   hero: HeroContent;
@@ -40,20 +43,20 @@ export function HomeSection({ hero }: HomeSectionProps) {
   const leadingTitle = titleWords.join(" ");
 
   return (
-    <section
-      id="home"
-      className="scroll-mt-20 xl:scroll-mt-[96px]"
-      data-aos="fade-right"
-      data-aos-offset="0"
-    >
-      <WindowChrome filename="home.tsx — Portfolio" accentColor="#FF5CAA">
+    <section id="home" data-aos="zoom-in-right" className="scroll-mt-[100px]">
+      <WindowChrome
+        filename="home.tsx — Portfolio"
+        accentColor="#FF5CAA"
+        bodyClassName="relative"
+      >
         <div className="flex">
           <div className="flex flex-col items-end gap-[16px] md:gap-[26px] px-2 py-5 font-mono text-xs md:text-sm text-ink/30 bg-[#E8E3D8] md:py-6 md:px-5">
             {LINE_NUMBERS.map((n) => (
               <span key={n}>{n}</span>
             ))}
           </div>
-          <div className="flex flex-1 flex-col items-start px-4 py-4  md:px-[38px] md:py-[26px]">
+          <div className="relative flex flex-1 flex-col items-start px-4 py-4  md:px-[38px] md:py-[26px]">
+            <ParticlesBg type="cobweb" />
             {hero.comments.map((comment) => (
               <p key={comment} className="font-mono text-sm text-[#169b62]">
                 {`// ${comment}`}

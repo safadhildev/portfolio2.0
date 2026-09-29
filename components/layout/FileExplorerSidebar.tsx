@@ -1,13 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { SECTION_HREF } from "@/components/constants";
+import { useActiveHash } from "@/components/useActiveHash";
 import { Icon } from "@/components/ui/Icon";
 import { WindowChrome } from "@/components/ui/WindowChrome";
-import { BODY_PADDING_BOTTOM, BODY_PADDING_TOP } from "../constants";
 
 const FILES = [
   { icon: "file-tsx", name: "home.tsx", href: "#home" },
   { icon: "file-json", name: "about.json", href: "#about" },
+  { icon: "file-markdown", name: "experience.md", href: "#experience" },
   {
     icon: "file-markdown",
     name: "projects.md",
@@ -16,22 +17,21 @@ const FILES = [
   { icon: "file-shell", name: "contact.sh", href: "#contact" },
 ];
 
-export function FileExplorerSidebar() {
-  const [hash, setHash] = useState("#home");
+interface FileExplorerSidebarProps {
+  showExperience: boolean;
+}
 
-  useEffect(() => {
-    const syncHash = () => setHash(window.location.hash || "#home");
-    syncHash();
-    window.addEventListener("hashchange", syncHash);
-    return () => window.removeEventListener("hashchange", syncHash);
-  }, []);
+export function FileExplorerSidebar({ showExperience }: FileExplorerSidebarProps) {
+  const hash = useActiveHash();
+  const files = FILES.filter(
+    (file) => showExperience || file.href !== SECTION_HREF.EXPERIENCE,
+  );
 
   return (
     <aside
       data-aos="slide-right"
       data-aos-delay={0}
-      data-aos-offset="300"
-      className={`hidden xl:fixed xl:top-[85px] xl:bottom-[70px] xl:left-5 xl:block xl:w-[250px]`}
+      className={`hidden lg:z-10 lg:fixed lg:top-[85px] lg:bottom-[70px] lg:left-5 lg:block lg:w-[250px]`}
     >
       <WindowChrome
         filename="EXPLORER"
@@ -46,7 +46,7 @@ export function FileExplorerSidebar() {
           <Icon name="folder-chevron" size={14} />
         </div>
         <nav className="flex flex-1 flex-col gap-[10px]">
-          {FILES.map((file) => {
+          {files.map((file) => {
             const isActive = hash === file.href;
 
             return (

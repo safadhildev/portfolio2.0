@@ -11,6 +11,8 @@ export function AosInit() {
       easing: "ease-out-cubic",
       once: false,
       offset: 50,
+      // Reduced motion: AOS removes the data-aos attributes so content shows immediately.
+      disable: () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
     });
   }, []);
 

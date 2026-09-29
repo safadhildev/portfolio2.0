@@ -9,7 +9,7 @@ interface ContactSectionProps {
 
 export function ContactSection({ contact }: ContactSectionProps) {
   return (
-    <section id="contact" className="scroll-mt-20 py-10 md:pb-16 xl:scroll-mt-[96px]">
+    <section id="contact" className="py-10 md:pb-16">
       <div className="mb-6 md:mb-9" data-aos="fade-up">
         <SectionLabel number={contact.sectionNumber} label={contact.sectionName} />
       </div>

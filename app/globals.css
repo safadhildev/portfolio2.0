@@ -47,12 +47,20 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
-  /* background-color: var(--color-background); */
   background-color: #151515;
   color: var(--color-ink);
+  max-width: 100dvw;
   overflow-x: hidden;
+}
+
+/* Keep AOS targets visible before AOS.init() runs (or if it is disabled) for reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
