@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
-import {
-  Space_Grotesk,
-  JetBrains_Mono,
-  Courier_Prime,
-  Roboto_Mono,
-} from "next/font/google";
 import { AosInit } from "@/components/AosInit";
 import { SectionHashSync } from "@/components/SectionHashSync";
+import type { Metadata } from "next";
+import {
+  Courier_Prime,
+  JetBrains_Mono,
+  Roboto_Mono,
+  Space_Grotesk,
+} from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -39,7 +41,7 @@ const robotoMono = Roboto_Mono({
 export const metadata: Metadata = {
   title: "Fadhil/Dev — Portfolio",
   description:
-    "Syed Ahmad Fadhil — Malaysian software developer working with React Native, ReactJS, and Node.js.",
+    "Syed Ahmad Fadhil — Software Developer specialized in React Native, ReactJS, and Node.js.",
 };
 
 export default function RootLayout({
@@ -52,8 +54,13 @@ export default function RootLayout({
       <body
         className={`${robotoMono.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${courierPrime.variable} font-display antialiased text-ink`}
       >
+        {/* Next.js Analytics */}
+        <Analytics />
+        {/* AOS */}
         <AosInit />
+        {/* Section Hash Sync */}
         <SectionHashSync />
+        {/* Children */}
         <div className="bg-background">{children}</div>
       </body>
     </html>
