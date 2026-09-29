@@ -7,7 +7,7 @@ import type { ContactContent } from "@/lib/content";
 
 const SOCIAL_ICONS: Record<string, ReactNode> = {
   LinkedIn: <Icon name="linkedin" size={20} alt="LinkedIn" />,
-  YouTube: <Icon name="youtube" size={20} alt="YouTube" />,
+  YouTube: <Icon name="youtube" color="#FFFFFF"  size={20} alt="YouTube" />,
   Github: <Icon name="github" size={20} alt="GitHub" />,
   Instagram: <span className="font-mono text-[11px] font-bold">IG</span>,
 };
