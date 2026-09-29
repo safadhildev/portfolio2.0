@@ -130,6 +130,11 @@ function validateEntry(raw: unknown, index: number): ExperienceEntry {
   if (raw.description !== undefined) {
     entry.description = readString(raw, "description", path);
   }
+
+  if (isRecord(raw.windowStyles) && typeof raw.windowStyles.backgroundColor === "string") {
+    entry.windowStyles = { backgroundColor: raw.windowStyles.backgroundColor };
+  }
+
   return entry;
 }
 

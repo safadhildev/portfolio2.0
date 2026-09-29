@@ -25,6 +25,7 @@ const LINE_NUMBERS = [
   "13",
   "14",
   "15",
+  "16",
 ];
 
 function renderCodeLine(description: string) {
@@ -56,7 +57,7 @@ export function HomeSection({ hero }: HomeSectionProps) {
             ))}
           </div>
           <div className="relative flex flex-1 flex-col items-start px-4 py-4  md:px-[38px] md:py-[26px]">
-            <ParticlesBg type="cobweb" />
+            <ParticlesBg type="cobweb" num={50}/>
             {hero.comments.map((comment) => (
               <p key={comment} className="font-mono text-sm text-[#169b62]">
                 {`// ${comment}`}
@@ -65,13 +66,13 @@ export function HomeSection({ hero }: HomeSectionProps) {
             <div className="flex flex-1 flex-col mt-8 gap-6">
               <h1
                 data-aos="fade-down"
-                className="font-display text-[48px] font-bold leading-[0.93] text-ink md:text-[76px]  lg:text-[108px]"
+                className="font-display text-[36px] line font-bold leading-none text-ink sm:text-[56px]  lg:text-[80px] xl:text-[108px]"
               >
                 {leadingTitle}
                 <br />
-                <span className="text-mint">{lastWord}</span>
+                <span className="underline text-mint">{lastWord}</span>
               </h1>
-              <p className="font-mono text-base font-semibold text-ink text-[12px] md:text-[18px]">
+              <p className="font-mono text-base font-semibold text-ink text-[10px] md:text-[18px]">
                 {renderCodeLine(hero.description)}
               </p>
             </div>

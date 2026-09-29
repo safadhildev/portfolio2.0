@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  --breakpoint-lg: 60rem; /* 960px — ensures Chrome "Request Desktop Site" (~980px) triggers desktop layout */
   --color-background: #f7f1e3;
   --color-ink: #151515;
   --color-cream: #fffdfc;

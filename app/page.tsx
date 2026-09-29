@@ -26,7 +26,7 @@ export default function Home() {
     <>
       <IdeNavigation showExperience={showExperience} />
       <FileExplorerSidebar showExperience={showExperience} />
-      <main className="bg-background px-8 pb-10 pt-6 md:px-8 md:pb-20 md:pt-10 lg:ml-[300px] lg:mr-8 lg:w-auto lg:px-0 lg:pb-[10px] lg:pt-[85px]">
+      <main className="bg-background px-4 pb-10 pt-6 md:px-8 md:pb-20 md:pt-10 lg:ml-[300px] lg:mr-8 lg:w-auto lg:px-0 lg:pb-[10px] lg:pt-[85px]">
         <HomeSection hero={content.hero} />
         <AboutSection about={content.about} skills={content.skills} />
         {showExperience && (

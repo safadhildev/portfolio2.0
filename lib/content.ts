@@ -80,6 +80,7 @@ export interface ExperienceEntry {
   description?: string;
   responsibilities: string[];
   skills: string[];
+  windowStyles?: { backgroundColor: string };
 }
 
 export interface ExperienceContent {
