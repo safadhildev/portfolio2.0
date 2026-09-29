@@ -30,8 +30,7 @@ export function FileExplorerSidebar() {
     <aside
       data-aos="slide-right"
       data-aos-delay={0}
-      data-aos-offset="300"
-      className={`hidden xl:fixed xl:top-[85px] xl:bottom-[70px] xl:left-5 xl:block xl:w-[250px]`}
+      className={`hidden lg:z-10 lg:fixed lg:top-[85px] lg:bottom-[70px] lg:left-5 lg:block lg:w-[250px]`}
     >
       <WindowChrome
         filename="EXPLORER"
