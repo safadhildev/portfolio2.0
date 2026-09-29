@@ -13,9 +13,9 @@ export function AboutSection({ about, skills }: AboutSectionProps) {
   return (
     <section
       id="about"
-      className="scroll-mt-20 py-10 lg:py-10 lg:scroll-mt-[96px]"
+      className="scroll-mt-20 py-10 mt-6 lg:py-10 lg:scroll-mt-[96px]"
     >
-      <BoxView className="bg-yellow-alt flex flex-col gap-16 px-4 py-6 shadow-none md:shadow-[6px_6px_0_0_#151515] lg:gap-10">
+      <BoxView className="bg-yellow-alt flex flex-col gap-16 px-4 py-6 shadow-none md:shadow-[6px_6px_0_0_#151515] lg:gap-10" data-aos="fade-up">
         <div className="flex flex-col gap-8 lg:flex-row lg:gap-10">
           <div
             className="flex flex-col flex-1 gap-3 lg:shrink-0"
