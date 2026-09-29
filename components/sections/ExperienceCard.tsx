@@ -40,7 +40,7 @@ export function ExperienceCard({ item }: ExperienceCardProps) {
 
       {item.responsibilities.length > 0 && (
         <div className="flex flex-col gap-1.5">
-          <h4 className="font-mono text-[8px] font-bold text-ink md:text-[10px]">
+          <h4 className="opacity-50 font-mono text-[8px] font-bold text-ink md:text-[10px]">
             RESPONSIBILITIES
           </h4>
           <ul className="list-disc pl-3 font-mono text-[10px] leading-[1.4] text-ink marker:text-ink md:pl-[14px] md:text-xs">
@@ -53,7 +53,7 @@ export function ExperienceCard({ item }: ExperienceCardProps) {
 
       {item.techs.length > 0 && (
         <div className="flex flex-col gap-1.5">
-          <h4 className="font-mono text-[10px] font-bold text-ink">
+          <h4 className="opacity-50 font-mono text-[10px] font-bold text-ink">
             TECHNOLOGIES
           </h4>
           <ul className="flex flex-wrap gap-[5px]">
