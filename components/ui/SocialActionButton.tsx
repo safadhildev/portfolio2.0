@@ -8,6 +8,7 @@ interface SocialActionButtonProps {
   shadowColor?: string;
   textColor?: string;
   icon?: ReactNode;
+  iconOnly?: boolean;
 }
 
 export function SocialActionButton({
@@ -17,13 +18,14 @@ export function SocialActionButton({
   shadowColor,
   textColor = "#FFFDFC",
   icon,
+  iconOnly = false,
 }: SocialActionButtonProps) {
   return (
     <Link
       href={href}
       target="_blank"
       rel="noreferrer noopener"
-      className="flex h-[42px] items-center gap-[5px] rounded-md border-2 px-4 font-mono text-[13px] font-bold shadow-[var(--btn-shadow)] transition-transform duration-100 hover:-translate-y-0.5 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+      className={`flex h-[42px] items-center rounded-md border-2 font-mono text-[13px] font-bold shadow-[var(--btn-shadow)] transition-transform duration-100 hover:-translate-y-0.5 active:translate-x-[4px] active:translate-y-[4px] active:shadow-none ${iconOnly ? "w-[42px] justify-center" : "gap-[5px] px-4"}`}
       style={
         {
           backgroundColor,
@@ -34,7 +36,7 @@ export function SocialActionButton({
       }
     >
       {icon}
-      {label}
+      {!iconOnly && label}
     </Link>
   );
 }

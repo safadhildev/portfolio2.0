@@ -8,8 +8,7 @@ export const EXPERIENCE_CONFIG: {
   presentLabel: string;
   missingIcon: MissingIconMode;
 } = {
-  // Owner's scope notes: entries sort and badge by END date.
-  badgeRule: "end",
+  badgeRule: "start",
   presentLabel: "Present",
   // Slugs with no icon still show up, as a text chip.
   missingIcon: "text",
@@ -83,6 +82,7 @@ export interface ExperienceItemView {
   badgeLabel: string;
   responsibilities: string[];
   techs: ResolvedTech[];
+  windowStyles?: { backgroundColor: string };
 }
 
 function assertNever(value: never): never {
@@ -209,6 +209,7 @@ export function buildExperienceView(
       badgeLabel: getBadgeLabel(entry, badgeRule, presentLabel),
       responsibilities: entry.responsibilities,
       techs,
+      windowStyles: entry.windowStyles,
     };
   });
 }
