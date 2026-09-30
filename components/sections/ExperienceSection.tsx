@@ -75,10 +75,7 @@ export function ExperienceSection({
       >
         <div className="flex min-w-0 flex-col">
           <div className="flex flex-col gap-3 md:gap-4">
-            <SectionLabel
-              number={number}
-              label={experience.sectionName}
-            />
+            <SectionLabel number={number} label={experience.sectionName} />
             <h2
               id="experience-title"
               className="font-display text-3xl font-bold leading-tight text-ink md:text-4xl xl:text-5xl"
