@@ -9,7 +9,7 @@ interface AboutSectionProps {
 
 export function AboutSection({ about, number }: AboutSectionProps) {
   return (
-    <section id="about" className="scroll-mt-10 lg:scroll-mt-[120px]">
+    <section id="about" className="scroll-mt-30 sm:scroll-mt-25 lg:scroll-mt-[120px]">
       <div className="flex flex-col gap-8 lg:flex-row lg:gap-10">
         <div
           className="flex flex-col flex-1 gap-3 lg:shrink-0"
