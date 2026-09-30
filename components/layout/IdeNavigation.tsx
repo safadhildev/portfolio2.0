@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { NAV_LINKS } from "@/components/constants";
 import { useActiveHash } from "@/components/useActiveHash";
 
@@ -11,10 +12,36 @@ export function IdeNavigation({ visibleHrefs }: IdeNavigationProps) {
   const hash = useActiveHash();
   const links = NAV_LINKS.filter((link) => visibleHrefs.has(link.href));
 
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
+  const scrollStopTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+
+      if (currentY <= 0) {
+        setVisible(true);
+      } else if (currentY > lastScrollY.current + 4) {
+        setVisible(false);
+      }
+
+      lastScrollY.current = currentY;
+
+      if (scrollStopTimer.current) clearTimeout(scrollStopTimer.current);
+      scrollStopTimer.current = setTimeout(() => setVisible(true), 150);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollStopTimer.current) clearTimeout(scrollStopTimer.current);
+    };
+  }, []);
+
   return (
     <header
-      data-aos="slide-down"
-      className="sticky top-0 z-40 h-14 w-full bg-ink lg:fixed lg:inset-x-0 lg:top-0 lg:h-[72px]"
+      className={`sticky top-0 z-40 h-14 w-full bg-ink transition-transform duration-300 lg:fixed lg:inset-x-0 lg:top-0 lg:h-[72px] ${visible ? "translate-y-0" : "-translate-y-full"}`}
     >
       {/* Mobile / narrow-desktop nav: logo + handle + nav links */}
       <div className="flex h-full items-center justify-between px-4 lg:hidden">
