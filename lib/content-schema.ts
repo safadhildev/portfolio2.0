@@ -1,10 +1,28 @@
-import type { ExperienceContent, ExperienceEntry, TextStyle } from "./content";
+import type {
+  AboutContent,
+  ContactContent,
+  DetailsContent,
+  EducationContent,
+  EducationEntry,
+  ExperienceContent,
+  ExperienceEntry,
+  HeroContent,
+  PortfolioContent,
+  ProjectsContent,
+  QualificationContent,
+  Skill,
+  SkillsContent,
+  TextStyle,
+} from "./content";
 
 export const SECTION_TYPES = [
+  "details",
   "hero",
   "about",
   "skills",
   "experience",
+  "education",
+  "qualification",
   "projects",
   "contact",
 ] as const;
@@ -38,7 +56,9 @@ export function pickSections(raw: unknown[]): Record<SectionType, unknown> {
       );
     }
     if (found.has(type)) {
-      throw new Error(`sections[${index}].type: duplicate section type "${type}"`);
+      throw new Error(
+        `sections[${index}].type: duplicate section type "${type}"`,
+      );
     }
     found.set(type, section);
   });
@@ -49,10 +69,13 @@ export function pickSections(raw: unknown[]): Record<SectionType, unknown> {
   }
 
   return {
+    details: found.get("details"),
     hero: found.get("hero"),
     about: found.get("about"),
     skills: found.get("skills"),
     experience: found.get("experience"),
+    education: found.get("education"),
+    qualification: found.get("qualification"),
     projects: found.get("projects"),
     contact: found.get("contact"),
   };
@@ -76,7 +99,10 @@ function readStringArray(
   path: string,
 ): string[] {
   const value = source[key];
-  if (!Array.isArray(value) || !value.every((item) => typeof item === "string")) {
+  if (
+    !Array.isArray(value) ||
+    !value.every((item) => typeof item === "string")
+  ) {
     fail(`${path}.${key}`, "must be an array of strings");
   }
   return value as string[];
@@ -90,7 +116,11 @@ function readIso(source: UnknownRecord, key: string, path: string): string {
   return value;
 }
 
-function readTextStyle(source: UnknownRecord, key: string, path: string): TextStyle {
+function readTextStyle(
+  source: UnknownRecord,
+  key: string,
+  path: string,
+): TextStyle {
   const style = source[key];
   if (!isRecord(style)) {
     return fail(`${path}.${key}`, "must be an object");
@@ -104,18 +134,45 @@ function readTextStyle(source: UnknownRecord, key: string, path: string): TextSt
   };
 }
 
+function readVisible(source: UnknownRecord, path: string): boolean {
+  const value = source.visible;
+  if (typeof value !== "boolean") {
+    fail(`${path}.visible`, "must be a boolean");
+  }
+  return value;
+}
+
+/** Reads `start`/`end` (ISO, end nullable) and enforces start <= end. */
+function readDateRange(
+  source: UnknownRecord,
+  path: string,
+): { start: string; end: string | null } {
+  const start = readIso(source, "start", path);
+  const end = source.end === null ? null : readIso(source, "end", path);
+  if (end !== null && Date.parse(start) > Date.parse(end)) {
+    fail(`${path}.start`, `must not be after end (${start} > ${end})`);
+  }
+  return { start, end };
+}
+
+/** Reads `raw` as a record whose `type` is `type`, or throws with `path`. */
+function readSection(raw: unknown, type: SectionType): UnknownRecord {
+  if (!isRecord(raw)) {
+    return fail(type, "must be an object");
+  }
+  if (raw.type !== type) {
+    fail(`${type}.type`, `must be "${type}"`);
+  }
+  return raw;
+}
+
 function validateEntry(raw: unknown, index: number): ExperienceEntry {
   const path = `experience.content[${index}]`;
   if (!isRecord(raw)) {
     return fail(path, "must be an object");
   }
 
-  const start = readIso(raw, "start", path);
-  const endRaw = raw.end;
-  const end = endRaw === null ? null : readIso(raw, "end", path);
-  if (end !== null && Date.parse(start) > Date.parse(end)) {
-    fail(`${path}.start`, `must not be after end (${start} > ${end})`);
-  }
+  const { start, end } = readDateRange(raw, path);
 
   const entry: ExperienceEntry = {
     start,
@@ -131,7 +188,10 @@ function validateEntry(raw: unknown, index: number): ExperienceEntry {
     entry.description = readString(raw, "description", path);
   }
 
-  if (isRecord(raw.windowStyles) && typeof raw.windowStyles.backgroundColor === "string") {
+  if (
+    isRecord(raw.windowStyles) &&
+    typeof raw.windowStyles.backgroundColor === "string"
+  ) {
     entry.windowStyles = { backgroundColor: raw.windowStyles.backgroundColor };
   }
 
@@ -139,20 +199,12 @@ function validateEntry(raw: unknown, index: number): ExperienceEntry {
 }
 
 export function validateExperience(raw: unknown): ExperienceContent {
-  if (!isRecord(raw)) {
-    return fail("experience", "must be an object");
-  }
-  if (raw.type !== "experience") {
-    fail("experience.type", 'must be "experience"');
-  }
-  if (typeof raw.sectionNumber !== "number") {
-    fail("experience.sectionNumber", "must be a number");
-  }
-  if (!Array.isArray(raw.content)) {
+  const source = readSection(raw, "experience");
+  if (!Array.isArray(source.content)) {
     return fail("experience.content", "must be an array");
   }
 
-  const content = raw.content.map(validateEntry);
+  const content = source.content.map(validateEntry);
 
   const seen = new Set<string>();
   content.forEach((entry, index) => {
@@ -167,10 +219,163 @@ export function validateExperience(raw: unknown): ExperienceContent {
 
   return {
     type: "experience",
-    sectionNumber: raw.sectionNumber,
-    sectionName: readString(raw, "sectionName", "experience"),
-    sectionTitle: readString(raw, "sectionTitle", "experience"),
-    sectionTitleStyles: readTextStyle(raw, "sectionTitleStyles", "experience"),
+    visible: readVisible(source, "experience"),
+    sectionName: readString(source, "sectionName", "experience"),
+    sectionTitle: readString(source, "sectionTitle", "experience"),
+    sectionTitleStyles: readTextStyle(source, "sectionTitleStyles", "experience"),
     content,
+  };
+}
+
+export function validateDetails(raw: unknown): DetailsContent {
+  const source = readSection(raw, "details");
+  const visible = readVisible(source, "details");
+  const content = source.content;
+  if (!isRecord(content)) {
+    return fail("details.content", "must be an object");
+  }
+  const path = "details.content";
+  return {
+    type: "details",
+    visible,
+    content: {
+      name: readString(content, "name", path),
+      position: readString(content, "position", path),
+      email: readString(content, "email", path),
+      location: readString(content, "location", path),
+      portfolioLink: readString(content, "portfolio-link", path),
+    },
+  };
+}
+
+function validateEducationEntry(raw: unknown, index: number): EducationEntry {
+  const path = `education.content[${index}]`;
+  if (!isRecord(raw)) {
+    return fail(path, "must be an object");
+  }
+  const { start, end } = readDateRange(raw, path);
+  return {
+    start,
+    end,
+    title: readString(raw, "title", path),
+    subtitle: readString(raw, "subtitle", path),
+    details: readStringArray(raw, "details", path),
+  };
+}
+
+export function validateEducation(raw: unknown): EducationContent {
+  const source = readSection(raw, "education");
+  if (!Array.isArray(source.content)) {
+    return fail("education.content", "must be an array");
+  }
+  const result: EducationContent = {
+    type: "education",
+    visible: readVisible(source, "education"),
+    sectionName: readString(source, "sectionName", "education"),
+    sectionTitle: readString(source, "sectionTitle", "education"),
+    content: source.content.map(validateEducationEntry),
+  };
+  if (source.sectionTitleStyles !== undefined) {
+    result.sectionTitleStyles = readTextStyle(
+      source,
+      "sectionTitleStyles",
+      "education",
+    );
+  }
+  return result;
+}
+
+export function validateQualification(raw: unknown): QualificationContent {
+  const source = readSection(raw, "qualification");
+  const content = source.content;
+  if (!Array.isArray(content)) {
+    return fail("qualification.content", "must be an array");
+  }
+  const items = content.map((item, index): string => {
+    if (typeof item !== "string" || item.trim() === "") {
+      return fail(
+        `qualification.content[${index}]`,
+        "must be a non-empty string",
+      );
+    }
+    return item;
+  });
+  return {
+    type: "qualification",
+    visible: readVisible(source, "qualification"),
+    sectionName: readString(source, "sectionName", "qualification"),
+    sectionTitle: readString(source, "sectionTitle", "qualification"),
+    content: items,
+  };
+}
+
+function validateSkill(raw: unknown, index: number): Skill {
+  const path = `skills.skills[${index}]`;
+  if (!isRecord(raw)) {
+    return fail(path, "must be an object");
+  }
+  const style = raw.style;
+  if (!isRecord(style)) {
+    return fail(`${path}.style`, "must be an object");
+  }
+  return {
+    label: readString(raw, "label", path),
+    title: readString(raw, "title", path),
+    icon: readString(raw, "icon", path),
+    style: {
+      backgroundColor: readString(style, "backgroundColor", `${path}.style`),
+      color: readString(style, "color", `${path}.style`),
+    },
+  };
+}
+
+export function validateSkills(raw: unknown): SkillsContent {
+  const source = readSection(raw, "skills");
+  if (!Array.isArray(source.skills)) {
+    return fail("skills.skills", "must be an array");
+  }
+  return {
+    type: "skills",
+    visible: readVisible(source, "skills"),
+    sectionName: readString(source, "sectionName", "skills"),
+    sectionTitle: readString(source, "sectionTitle", "skills"),
+    sectionTitleStyles: readTextStyle(source, "sectionTitleStyles", "skills"),
+    skills: source.skills.map(validateSkill),
+  };
+}
+
+/**
+ * Hero/about/projects/contact are only shallow-checked (record, `type`, boolean `visible`);
+ * their inner shape is trusted from the JSON (the website renders them as authored).
+ */
+function validateShallow<T extends { type: SectionType; visible: boolean }>(
+  raw: unknown,
+  type: T["type"],
+): T {
+  const source = readSection(raw, type);
+  readVisible(source, type);
+  return source as unknown as T;
+}
+
+/** Validates the whole portfolio JSON. Throws "path: reason" so a bad JSON fails `next build`. */
+export function parsePortfolio(raw: unknown): PortfolioContent {
+  if (!isRecord(raw)) {
+    return fail("portfolio", "must be an object");
+  }
+  if (!Array.isArray(raw.sections)) {
+    return fail("sections", "must be an array");
+  }
+  const sections = pickSections(raw.sections);
+  return {
+    title: readString(raw, "title", "portfolio"),
+    details: validateDetails(sections.details),
+    hero: validateShallow<HeroContent>(sections.hero, "hero"),
+    about: validateShallow<AboutContent>(sections.about, "about"),
+    skills: validateSkills(sections.skills),
+    experience: validateExperience(sections.experience),
+    education: validateEducation(sections.education),
+    qualification: validateQualification(sections.qualification),
+    projects: validateShallow<ProjectsContent>(sections.projects, "projects"),
+    contact: validateShallow<ContactContent>(sections.contact, "contact"),
   };
 }

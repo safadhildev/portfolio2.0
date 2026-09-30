@@ -1,17 +1,15 @@
 "use client";
 
-import { NAV_LINKS, SECTION_HREF } from "@/components/constants";
+import { NAV_LINKS } from "@/components/constants";
 import { useActiveHash } from "@/components/useActiveHash";
 
 interface IdeNavigationProps {
-  showExperience: boolean;
+  visibleHrefs: ReadonlySet<string>;
 }
 
-export function IdeNavigation({ showExperience }: IdeNavigationProps) {
+export function IdeNavigation({ visibleHrefs }: IdeNavigationProps) {
   const hash = useActiveHash();
-  const links = NAV_LINKS.filter(
-    (link) => showExperience || link.href !== SECTION_HREF.EXPERIENCE,
-  );
+  const links = NAV_LINKS.filter((link) => visibleHrefs.has(link.href));
 
   return (
     <header

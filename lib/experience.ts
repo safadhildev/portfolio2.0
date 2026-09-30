@@ -8,6 +8,7 @@ export const EXPERIENCE_CONFIG: {
   presentLabel: string;
   missingIcon: MissingIconMode;
 } = {
+  // Year badge on each card: "start" shows the start year, "end" the end year. Current roles always show presentLabel.
   badgeRule: "start",
   presentLabel: "Present",
   // Slugs with no icon still show up, as a text chip.
@@ -40,7 +41,7 @@ export const TECH_EXTRAS: Record<
   "rest-api": { label: "REST API", color: null, icon: "link" },
   jira: { label: "Jira", color: null, icon: "jira" },
   confluence: { label: "Confluence", color: null, icon: "confluence" },
-  javascript: { label: "JavaScript", color: null, icon: "javascript" },
+  js: { label: "JavaScript", color: null, icon: "js" },
   typescript: { label: "TypeScript", color: null, icon: "typescript" },
   firebase: { label: "Firebase", color: null, icon: "firebase" },
 };
@@ -85,7 +86,7 @@ export interface ExperienceItemView {
   windowStyles?: { backgroundColor: string };
 }
 
-function assertNever(value: never): never {
+export function assertNever(value: never): never {
   throw new Error(`Unhandled value: ${String(value)}`);
 }
 
@@ -100,8 +101,10 @@ function parseYearMonth(iso: string): { year: string; month: number } {
 }
 
 /** Newest first by end date (still-running roles on top), then by start date. Non-mutating and stable. */
-export function sortExperience(entries: ExperienceEntry[]): ExperienceEntry[] {
-  const endTime = (entry: ExperienceEntry) =>
+export function sortExperience<T extends { start: string; end: string | null }>(
+  entries: T[],
+): T[] {
+  const endTime = (entry: T) =>
     entry.end === null ? Number.POSITIVE_INFINITY : Date.parse(entry.end);
 
   return [...entries].sort((a, b) => {
@@ -118,6 +121,13 @@ export function sortExperience(entries: ExperienceEntry[]): ExperienceEntry[] {
 export function formatMonthYear(iso: string): string {
   const { year, month } = parseYearMonth(iso);
   return `${MONTHS[month - 1]} ${year}`;
+}
+
+/** "Aug 2023 - Oct 2025", or "Aug 2023 - Present" while the role is still running. */
+export function formatDateRange(start: string, end: string | null): string {
+  const endLabel =
+    end === null ? EXPERIENCE_CONFIG.presentLabel : formatMonthYear(end);
+  return `${formatMonthYear(start)} - ${endLabel}`;
 }
 
 export function getBadgeLabel(
@@ -182,8 +192,6 @@ export function buildExperienceView(
     const resolved = entry.skills.map((slug) =>
       resolveTech(slug, skills, available),
     );
-
-    console.log("[DEBUG] >> resolved", { missingIcon });
 
     let techs: ResolvedTech[];
     switch (missingIcon) {

@@ -14,13 +14,14 @@ const SOCIAL_ICONS: Record<string, ReactNode> = {
 
 interface ContactSectionProps {
   contact: ContactContent;
+  number: number;
 }
 
-export function ContactSection({ contact }: ContactSectionProps) {
+export function ContactSection({ contact, number }: ContactSectionProps) {
   return (
     <section id="contact" className="py-10 md:pb-16">
       <div className="mb-6 md:mb-9" data-aos="fade-up">
-        <SectionLabel number={contact.sectionNumber} label={contact.sectionName} />
+        <SectionLabel number={number} label={contact.sectionName} />
       </div>
       <WindowChrome
         filename="terminal — zsh"
