@@ -6,26 +6,24 @@ import { Icon } from "@/components/ui/Icon";
 import { WindowChrome } from "@/components/ui/WindowChrome";
 
 const FILES = [
-  { icon: "file-tsx", name: "home.tsx", href: "#home" },
-  { icon: "file-json", name: "about.json", href: "#about" },
-  { icon: "file-markdown", name: "experience.md", href: "#experience" },
+  { icon: "file-tsx", name: "home.tsx", href: SECTION_HREF.HOME },
+  { icon: "file-json", name: "about.json", href: SECTION_HREF.ABOUT },
+  { icon: "file-markdown", name: "experience.md", href: SECTION_HREF.EXPERIENCE },
   {
     icon: "file-markdown",
     name: "projects.md",
-    href: "#projects",
+    href: SECTION_HREF.PROJECTS,
   },
-  { icon: "file-shell", name: "contact.sh", href: "#contact" },
+  { icon: "file-shell", name: "contact.sh", href: SECTION_HREF.CONTACT },
 ];
 
 interface FileExplorerSidebarProps {
-  showExperience: boolean;
+  visibleHrefs: ReadonlySet<string>;
 }
 
-export function FileExplorerSidebar({ showExperience }: FileExplorerSidebarProps) {
+export function FileExplorerSidebar({ visibleHrefs }: FileExplorerSidebarProps) {
   const hash = useActiveHash();
-  const files = FILES.filter(
-    (file) => showExperience || file.href !== SECTION_HREF.EXPERIENCE,
-  );
+  const files = FILES.filter((file) => visibleHrefs.has(file.href));
 
   return (
     <aside

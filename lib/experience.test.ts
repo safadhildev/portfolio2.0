@@ -4,6 +4,7 @@ import type { ExperienceContent, ExperienceEntry, Skill } from "./content.ts";
 import {
   EXPERIENCE_CONFIG,
   buildExperienceView,
+  formatDateRange,
   formatMonthYear,
   getBadgeLabel,
   resolveTech,
@@ -37,7 +38,7 @@ const available = new Set(["typescript", "git", "link"]);
 function content(entries: ExperienceEntry[]): ExperienceContent {
   return {
     type: "experience",
-    sectionNumber: 3,
+    visible: true,
     sectionName: "EXPERIENCE.LOG",
     sectionTitle: "MY EXPERIENCE",
     sectionTitleStyles: {
@@ -49,6 +50,27 @@ function content(entries: ExperienceEntry[]): ExperienceContent {
     content: entries,
   };
 }
+
+describe("formatDateRange", () => {
+  it("formats a closed range", () => {
+    assert.equal(
+      formatDateRange("2023-08-15T00:00:00+08:00", "2025-10-25T00:00:00+08:00"),
+      "Aug 2023 - Oct 2025",
+    );
+  });
+
+  it("uses the present label for an open range", () => {
+    assert.equal(
+      formatDateRange("2025-10-27T00:00:00+08:00", null),
+      `Oct 2025 - ${EXPERIENCE_CONFIG.presentLabel}`,
+    );
+    assert.equal(formatDateRange("2025-10-27T00:00:00+08:00", null), "Oct 2025 - Present");
+  });
+
+  it("rejects an invalid ISO date", () => {
+    assert.throws(() => formatDateRange("nope", null), /Invalid ISO date/);
+  });
+});
 
 describe("sortExperience", () => {
   it("puts a null end first, then end desc, then start desc", () => {
@@ -66,6 +88,14 @@ describe("sortExperience", () => {
       sorted.map((e) => e.filename),
       ["current", "late", "late-early-start", "old"],
     );
+  });
+
+  it("sorts any object with start/end, keeping its extra fields", () => {
+    const items = [
+      { start: "2016-09-01T00:00:00+08:00", end: "2019-01-30T00:00:00+08:00", title: "degree" },
+      { start: "2019-07-01T00:00:00+08:00", end: "2019-07-02T00:00:00+08:00", title: "course" },
+    ];
+    assert.deepEqual(sortExperience(items).map((i) => i.title), ["course", "degree"]);
   });
 
   it("is stable for identical dates and does not mutate the input", () => {
@@ -171,7 +201,7 @@ describe("buildExperienceView", () => {
     assert.equal(item.endMonth, "2025-10");
     assert.equal(item.startLabel, "Aug 2023");
     assert.equal(item.endLabel, "Oct 2025");
-    assert.equal(item.badgeLabel, "2025");
+    assert.equal(item.badgeLabel, "2023");
   });
 
   it("uses the present label and a null endMonth when the role is ongoing", () => {

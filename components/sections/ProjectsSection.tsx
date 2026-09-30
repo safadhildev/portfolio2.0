@@ -4,9 +4,10 @@ import type { ProjectsContent } from "@/lib/content";
 
 interface ProjectsSectionProps {
   projects: ProjectsContent;
+  number: number;
 }
 
-export function ProjectsSection({ projects }: ProjectsSectionProps) {
+export function ProjectsSection({ projects, number }: ProjectsSectionProps) {
   return (
     <section
       id="projects"
@@ -18,7 +19,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
       >
         <div className="flex flex-col gap-3">
           <SectionLabel
-            number={projects.sectionNumber}
+            number={number}
             label={projects.sectionName}
           />
           <h2 className="font-display text-3xl font-bold leading-tight text-ink md:text-4xl xl:text-5xl">

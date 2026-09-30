@@ -4,16 +4,14 @@ import type { SkillsContent } from "@/lib/content";
 
 interface SkillsSectionProps {
   skills: SkillsContent;
+  number: number;
 }
 
-export function SkillsSection({ skills }: SkillsSectionProps) {
+export function SkillsSection({ skills, number }: SkillsSectionProps) {
   return (
     <div className="flex flex-col gap-6 md:gap-8">
       <div className="flex flex-col gap-3" data-aos="fade-up">
-        <SectionLabel
-          number={skills.sectionNumber}
-          label={skills.sectionName}
-        />
+        <SectionLabel number={number} label={skills.sectionName} />
         <p className="font-display text-xl leading-snug text-ink  md:text-2xl">
           {skills.sectionTitle}
         </p>

@@ -2,7 +2,19 @@
   "title": "Fadhil/Dev",
   "sections": [
     {
+      "type": "details",
+      "visible": false,
+      "content": {
+        "name": "Syed Ahmad Fadhil Bin Syed Hassan",
+        "position": "Product Engineer",
+        "email": "safadhil95@gmail.com",
+        "location": "Kuala Lumpur, Malaysia",
+        "portfolio-link": "https://syedahmadfadhil.vercel.app"
+      }
+    },
+    {
       "type": "hero",
+      "visible": true,
       "comments": ["Hello world"],
       "title": "SYED AHMAD FADHIL",
       "description": "const passion = 'Just a guy who loves to code and build things.'",
@@ -15,7 +27,7 @@
     },
     {
       "type": "about",
-      "sectionNumber": 1,
+      "visible": true,
       "sectionName": "PROFILE.README",
       "sectionTitle": "ABOUT ME",
       "sectionTitleStyles": {
@@ -28,7 +40,7 @@
     },
     {
       "type": "skills",
-      "sectionNumber": 2,
+      "visible": true,
       "sectionName": "TOOLBOX.CONFIG",
       "sectionTitle": "These are some languages/frameworks/tools that I'm familiar with:",
       "sectionTitleStyles": {
@@ -68,7 +80,7 @@
         {
           "label": "language.js",
           "title": "JavaScript",
-          "icon": "javascript",
+          "icon": "js",
           "style": {
             "backgroundColor": "#F5E642",
             "color": "#000000"
@@ -105,7 +117,7 @@
     },
     {
       "type": "experience",
-      "sectionNumber": 3,
+      "visible": true,
       "sectionName": "EXPERIENCE.LOG",
       "sectionTitle": "MY EXPERIENCE",
       "sectionTitleStyles": {
@@ -118,7 +130,7 @@
         {
           "start": "2025-10-27T00:00:00+08:00",
           "end": null,
-	  "current": true,
+          "current": true,
           "title": "Product Engineer",
           "company": "Big Corridor Sdn Bhd",
           "filename": "experience.bigcorridor-product.md",
@@ -132,7 +144,7 @@
           "skills": [
             "react",
             "nextjs",
-            "javascript",
+            "js",
             "typescript",
             "nodejs",
             "expressjs",
@@ -149,7 +161,7 @@
           "start": "2023-08-15T00:00:00+08:00",
           "end": "2025-10-25T00:00:00+08:00",
           "current": false,
-	  "title": "Developer",
+          "title": "Developer",
           "company": "Maybank Shared Services Sdn Bhd",
           "filename": "experience.maybank.md",
           "description": "Work mainly on frontend Mobile, maintaining MAE app, improving user experience and performance.",
@@ -167,7 +179,7 @@
           ],
           "skills": [
             "react",
-            "javascript",
+            "js",
             "nodejs",
             "laravel",
             "firebase",
@@ -184,7 +196,7 @@
         {
           "start": "2020-04-01T00:00:00+08:00",
           "end": "2023-08-01T00:00:00+08:00",
-	  "current": false,
+          "current": false,
           "title": "React Native Developer",
           "company": "Big Corridor Sdn Bhd",
           "filename": "experience.bigcorridor.md",
@@ -200,7 +212,7 @@
           ],
           "skills": [
             "react",
-            "javascript",
+            "js",
             "nodejs",
             "laravel",
             "firebase",
@@ -214,8 +226,71 @@
       ]
     },
     {
+      "type": "education",
+      "visible": false,
+      "sectionName": "EDUCATION.LOG",
+      "sectionTitle": "EDUCATION BACKGROUND",
+      "sectionTitleStyles": {
+        "fontWeight": "bold",
+        "fontSize": "48px",
+        "color": "#000000",
+        "fontFamily": "Space Grotesk"
+      },
+      "content": [
+        {
+          "start": "2019-07-01T00:00:00+08:00",
+          "end": "2019-07-02T00:00:00+08:00",
+          "title": "Data Analyst with Python Track",
+          "subtitle": "DATACAMP at Universiti Teknologi Mara (UiTM) Negeri Sembilan",
+          "details": [
+            "Learned how to import, clean, manipulate, and visualize data.",
+            "Experienced with some of the most popular Python libraries, including pandas, NumPy, Matplotlib, and many more.",
+            "Awarded as the best participant for completing Data Analyst with Python Track with the highest score."
+          ]
+        },
+        {
+          "start": "2016-09-01T00:00:00+08:00",
+          "end": "2019-01-30T00:00:00+08:00",
+          "title": "Bachelor of Science (Hons.) Computational Mathematics",
+          "subtitle": "Universiti Teknologi Mara (UiTM) Negeri Sembilan",
+          "details": [
+            "Graduated with a CGPA of 3.47.",
+            "Awarded as the best student of Bachelor of Science (Hons.) Computational Mathematics (2018) by Faculty of Computer and Mathematical Sciences.",
+            "Created an Android app integrated with Mathematics formulas for Final Year Project.",
+            "Studied Software Engineering, Object-Oriented Programming, Data Structures & Algorithms, and more"
+          ]
+        },
+        {
+          "start": "2013-06-01T00:00:00+08:00",
+          "end": "2016-04-30T00:00:00+08:00",
+          "title": "Diploma in Mathematical Sciences",
+          "subtitle": "Universiti Teknologi Mara (UiTM) Negeri Sembilan",
+          "details": [
+            "Graduated with a CGPA of 3.73.",
+            "Studied Calculus, Linear Algebra, Geometry, Mathematical Logic, C++ and more"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "qualification",
+      "visible": false,
+      "sectionName": "QUALIFICATION.LOG",
+      "sectionTitle": "Qualification",
+      "content": [
+        "Awarded as the best participant by UiTM for completing Data Analyst with Python Track with the highest score.",
+        "Awarded as the best student of Bachelor of Science (Hons.) Computational Mathematics",
+        "(2018) by Faculty of Computer and Mathematical Sciences.",
+        "Achieved Bronze Award in International Invention & Innovative Competition",
+        "(InIIC Series 1/2020) – I’ve created an android application on rental house searching for students using Java Language for Android App & Firebase API.",
+        "Experienced in React Native, React JS, Android, and Firebase.",
+        "Ability to work in a fast-paced, intense environment smoothly.",
+        "Quick learner, eager to further my programming/mathematics knowledge and skills."
+      ]
+    },
+    {
       "type": "projects",
-      "sectionNumber": 4,
+      "visible": true,
       "sectionName": "OPEN EDITORS",
       "sectionTitle": "SELECTED PROJECTS",
       "sectionTitleStyles": {
@@ -226,6 +301,7 @@
       },
       "content": [
         {
+          "id": "project-non-resident-app",
           "number": "01",
           "year": "2017",
           "filename": "non-resident.java",
@@ -244,6 +320,7 @@
           }
         },
         {
+          "id": "project-rating-app",
           "number": "02",
           "year": "2018",
           "filename": "rating-app.java",
@@ -262,6 +339,7 @@
           }
         },
         {
+          "id": "project-weather-app",
           "number": "03",
           "year": "2020",
           "filename": "weather.jsx",
@@ -280,6 +358,7 @@
           }
         },
         {
+          "id": "project-e-wedding-invitation",
           "number": "04",
           "year": "2022",
           "filename": "wedding.jsx",
@@ -306,7 +385,7 @@
     },
     {
       "type": "contact",
-      "sectionNumber": 5,
+      "visible": true,
       "sectionName": "CONTACT.SH",
       "sectionTitle": "LET'S CONNECT !",
       "sectionTitleStyles": {

@@ -5,7 +5,7 @@ const TECH_DESCRIPTIONS: Record<string, string> = {
   reactjs: "JavaScript library for building component-based user interfaces.",
   java: "Object-oriented language widely used for Android and backend systems.",
   android: "Google's mobile OS; native apps are built with Kotlin or Java.",
-  javascript: "The language of the web, running in browsers and on servers.",
+  js: "The language of the web, running in browsers and on servers.",
   typescript: "JavaScript with static types for safer, more maintainable code.",
   nodejs: "JavaScript runtime for building servers, APIs and tooling.",
   firebase: "Google's app platform: auth, database, analytics and hosting.",

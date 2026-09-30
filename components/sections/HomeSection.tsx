@@ -51,7 +51,7 @@ export function HomeSection({ hero }: HomeSectionProps) {
         bodyClassName="relative"
       >
         <div className="flex">
-          <div className="flex flex-col items-end gap-[16px] md:gap-[26px] px-2 py-5 font-mono text-xs md:text-sm text-ink/30 bg-[#E8E3D8] md:py-6 md:px-5">
+          <div className="flex flex-col items-end gap-[16px] md:gap-[22px] px-2 py-5 font-mono text-xs md:text-sm text-ink/30 bg-[#E8E3D8] md:py-6 md:px-5">
             {LINE_NUMBERS.map((n) => (
               <span key={n}>{n}</span>
             ))}

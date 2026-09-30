@@ -1,5 +1,5 @@
 import rawContent from "@/content/portfolio.json";
-import { pickSections, validateExperience } from "./content-schema";
+import { parsePortfolio } from "./content-schema";
 import type { SectionType } from "./content-schema";
 
 export type { SectionType };
@@ -18,6 +18,7 @@ export interface HeroLink {
 
 export interface HeroContent {
   type: "hero";
+  visible: boolean;
   comments: string[];
   title: string;
   description: string;
@@ -36,7 +37,7 @@ export interface Skill {
 
 export interface AboutContent {
   type: "about";
-  sectionNumber: number;
+  visible: boolean;
   sectionName: string;
   sectionTitle: string;
   sectionTitleStyles: TextStyle;
@@ -45,7 +46,7 @@ export interface AboutContent {
 
 export interface SkillsContent {
   type: "skills";
-  sectionNumber: number;
+  visible: boolean;
   sectionName: string;
   sectionTitle: string;
   sectionTitleStyles: TextStyle;
@@ -59,6 +60,7 @@ export interface ProjectLink {
 }
 
 export interface Project {
+  id: string;
   number: string;
   year: string;
   filename: string;
@@ -85,7 +87,7 @@ export interface ExperienceEntry {
 
 export interface ExperienceContent {
   type: "experience";
-  sectionNumber: number;
+  visible: boolean;
   sectionName: string;
   sectionTitle: string;
   sectionTitleStyles: TextStyle;
@@ -94,7 +96,7 @@ export interface ExperienceContent {
 
 export interface ProjectsContent {
   type: "projects";
-  sectionNumber: number;
+  visible: boolean;
   sectionName: string;
   sectionTitle: string;
   sectionTitleStyles: TextStyle;
@@ -112,7 +114,7 @@ export interface ContactLink {
 
 export interface ContactContent {
   type: "contact";
-  sectionNumber: number;
+  visible: boolean;
   sectionName: string;
   sectionTitle: string;
   sectionTitleStyles: TextStyle;
@@ -122,33 +124,59 @@ export interface ContactContent {
   links: ContactLink[];
 }
 
+export interface DetailsContent {
+  type: "details";
+  visible: boolean;
+  content: {
+    name: string;
+    position: string;
+    email: string;
+    location: string;
+    portfolioLink: string;
+  };
+}
+
+export interface EducationEntry {
+  start: string;
+  end: string | null;
+  title: string;
+  subtitle: string;
+  details: string[];
+}
+
+export interface EducationContent {
+  type: "education";
+  visible: boolean;
+  sectionName: string;
+  sectionTitle: string;
+  sectionTitleStyles?: TextStyle;
+  content: EducationEntry[];
+}
+
+export interface QualificationContent {
+  type: "qualification";
+  visible: boolean;
+  sectionName: string;
+  sectionTitle: string;
+  content: string[];
+}
+
 export interface PortfolioContent {
   title: string;
+  details: DetailsContent;
   hero: HeroContent;
   about: AboutContent;
   skills: SkillsContent;
   experience: ExperienceContent;
+  education: EducationContent;
+  qualification: QualificationContent;
   projects: ProjectsContent;
   contact: ContactContent;
 }
 
 // Sections are resolved by their `type` key, not array position; a bad JSON throws at build.
-const sections = pickSections(rawContent.sections);
-const hero = sections.hero as HeroContent;
-const about = sections.about as AboutContent;
-const skills = sections.skills as SkillsContent;
-const experience = validateExperience(sections.experience);
-const projects = sections.projects as ProjectsContent;
-const contact = sections.contact as ContactContent;
+const portfolio = parsePortfolio(rawContent);
 
 export function getPortfolioContent(): PortfolioContent {
-  return {
-    title: rawContent.title,
-    hero,
-    about,
-    skills,
-    experience,
-    projects,
-    contact,
-  };
+  return portfolio;
 }

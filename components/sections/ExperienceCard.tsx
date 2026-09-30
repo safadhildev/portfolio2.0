@@ -58,8 +58,6 @@ export function ExperienceCard({ item }: ExperienceCardProps) {
           </h4>
           <ul className="flex flex-wrap gap-[5px]">
             {item.techs.map((tech, index) => {
-              console.log("[DEBUG] >> ", { tech, index });
-
               return (
                 <TechIconChip
                   key={tech.slug}
