@@ -1,3 +1,4 @@
+import { track } from "@vercel/analytics";
 import { Icon } from "@/components/ui/Icon";
 import { RESUME_ROUTE } from "@/lib/resume";
 
@@ -15,6 +16,9 @@ export function ResumeButton({ className = "" }: ResumeButtonProps) {
       href={RESUME_ROUTE}
       target="_blank"
       rel="noopener noreferrer nofollow"
+      onClick={() => {
+        track("resume_button_clicked");
+      }}
       className={`btn-press inline-flex h-[42px] min-w-[120px] items-center justify-center gap-[5px] rounded-md border-2 border-ink bg-white px-4 font-tag-mono text-xs font-bold text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink md:min-w-[150px] md:text-base ${className}`}
     >
       My Resume

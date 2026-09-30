@@ -2,6 +2,7 @@ import { WindowChrome } from "@/components/ui/WindowChrome";
 import { TechTag } from "@/components/ui/TechTag";
 import { Icon } from "@/components/ui/Icon";
 import type { Project } from "@/lib/content";
+import { track } from "@vercel/analytics";
 
 interface ProjectCardProps {
   project: Project;
@@ -44,6 +45,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label={link.type}
+                onClick={() => {
+                  track(`${project.id}_${link.type}_clicked`);
+                }}
                 className="flex size-9 items-center justify-center rounded-md border-2 border-ink bg-cream shadow-[3px_3px_0_0_#151515] transition-transform duration-100 hover:-translate-y-0.5 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none md:size-11"
               >
                 <Icon name={link.icon} size={18} alt={link.type} color="#000000" />

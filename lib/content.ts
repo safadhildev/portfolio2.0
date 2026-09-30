@@ -60,6 +60,7 @@ export interface ProjectLink {
 }
 
 export interface Project {
+  id: string;
   number: string;
   year: string;
   filename: string;

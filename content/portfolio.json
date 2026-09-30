@@ -301,6 +301,7 @@
       },
       "content": [
         {
+          "id": "project-non-resident-app",
           "number": "01",
           "year": "2017",
           "filename": "non-resident.java",
@@ -319,6 +320,7 @@
           }
         },
         {
+          "id": "project-rating-app",
           "number": "02",
           "year": "2018",
           "filename": "rating-app.java",
@@ -337,6 +339,7 @@
           }
         },
         {
+          "id": "project-weather-app",
           "number": "03",
           "year": "2020",
           "filename": "weather.jsx",
@@ -355,6 +358,7 @@
           }
         },
         {
+          "id": "project-e-wedding-invitation",
           "number": "04",
           "year": "2022",
           "filename": "wedding.jsx",
