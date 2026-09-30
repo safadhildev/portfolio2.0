@@ -19,7 +19,7 @@ export function ResumeButton({ className = "" }: ResumeButtonProps) {
       onClick={() => {
         track("resume_button_clicked");
       }}
-      className={`btn-press inline-flex h-[42px] min-w-[120px] items-center justify-center gap-[5px] rounded-md border-2 border-ink bg-white px-4 font-tag-mono text-xs font-bold text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink md:min-w-[150px] md:text-base ${className}`}
+      className={`buttonBounceAnim btn-press inline-flex h-[42px] min-w-[120px] items-center justify-center gap-[5px] rounded-md border-2 border-ink bg-white px-4 font-tag-mono text-xs font-bold text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink md:min-w-[250px] md:text-base ${className}`}
     >
       My Resume
       <Icon name="external-link" color="#151515" size={18} alt="" />
