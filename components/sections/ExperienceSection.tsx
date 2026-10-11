@@ -67,7 +67,7 @@ export function ExperienceSection({
     <section
       id="experience"
       aria-labelledby="experience-title"
-      className="scroll-mt-10 py-10 lg:scroll-mt-[70px]"
+      className="scroll-mt-14 py-10 lg:scroll-mt-[70px]"
     >
       <div
         className="mb-9 flex flex-col gap-3 md:mb-[34px] md:flex-row md:items-end md:justify-between md:gap-6"
