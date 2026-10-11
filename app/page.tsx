@@ -41,21 +41,12 @@ export default function Home() {
       <FileExplorerSidebar visibleHrefs={visibleHrefs} />
       <main className="bg-background px-4 pb-10 pt-6 md:px-8 md:pb-20 md:pt-10 lg:ml-[300px] lg:mr-8 lg:w-auto lg:px-0 lg:pb-[10px] lg:pt-[85px]">
         {visible.has("hero") && <HomeSection hero={content.hero} />}
-        {showIntroBox && (
-          <BoxView
-            className="bg-yellow-alt flex flex-col gap-16 px-4 py-6 mt-10 shadow-none md:mt-20 md:shadow-[6px_6px_0_0_#151515] lg:gap-10"
-            data-aos="fade-up"
-          >
-            {visible.has("about") && (
-              <AboutSection about={content.about} number={numbers.about ?? 0} />
-            )}
-            {visible.has("skills") && (
-              <SkillsSection
-                skills={content.skills}
-                number={numbers.skills ?? 0}
-              />
-            )}
-          </BoxView>
+        {showIntroBox && visible.has("about") && (
+          <AboutSection
+            about={content.about}
+            skills={content.skills}
+            number={numbers.about ?? 0}
+          />
         )}
         {visible.has("experience") && (
           <ExperienceSection
