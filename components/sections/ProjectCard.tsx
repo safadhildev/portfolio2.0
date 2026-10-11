@@ -6,11 +6,12 @@ import { track } from "@vercel/analytics";
 
 interface ProjectCardProps {
   project: Project;
+  index: number;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
-
+export function ProjectCard({ project, index }: ProjectCardProps) {
   const accentColor = project.windowStyles.backgroundColor;
+  const numberStr = index < 10 ? `0${index + 1}` : `${index + 1}`;
 
   return (
     <WindowChrome
@@ -19,7 +20,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       bodyClassName="flex flex-col gap-4 p-4 md:flex-row md:gap-[30px] md:p-[30px]"
     >
       <div className="flex size-14 shrink-0 items-center justify-center border-2 border-ink bg-ink font-display text-xl font-bold text-cream md:size-[86px] md:text-3xl">
-        {project.number}
+        {numberStr}
       </div>
       <div className="flex flex-1 flex-col gap-3 md:gap-4">
         <div className="flex flex-wrap items-start justify-between gap-2">
@@ -50,7 +51,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 }}
                 className="flex size-9 items-center justify-center rounded-md border-2 border-ink bg-cream shadow-[3px_3px_0_0_#151515] transition-transform duration-100 hover:-translate-y-0.5 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none md:size-11"
               >
-                <Icon name={link.icon} size={18} alt={link.type} color="#000000" />
+                <Icon
+                  name={link.icon}
+                  size={18}
+                  alt={link.type}
+                  color="#000000"
+                />
               </a>
             ))}
           </div>

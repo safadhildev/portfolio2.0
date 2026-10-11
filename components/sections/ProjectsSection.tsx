@@ -37,7 +37,7 @@ export function ProjectsSection({ projects, number }: ProjectsSectionProps) {
             data-aos="slide-right"
             data-aos-delay={Math.min(index * 80, 240)}
           >
-            <ProjectCard project={project} />
+            <ProjectCard project={project} index={index} />
           </div>
         ))}
       </div>
