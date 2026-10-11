@@ -41,7 +41,7 @@ export function IdeNavigation({ visibleHrefs }: IdeNavigationProps) {
 
   return (
     <header
-      className={`sticky top-0 z-40 h-14 w-full bg-ink transition-transform duration-300 lg:fixed lg:inset-x-0 lg:top-0 lg:h-[72px] ${visible ? "translate-y-0" : "-translate-y-full"}`}
+      className={`sticky top-0 z-40 h-14 w-full bg-ink max-lg:transition-transform max-lg:duration-300 max-lg:focus-within:translate-y-0 lg:fixed lg:inset-x-0 lg:top-0 lg:h-[72px] ${visible ? "" : "max-lg:-translate-y-full"}`}
     >
       {/* Mobile / narrow-desktop nav: logo + handle + nav links */}
       <div className="flex h-full items-center justify-between px-4 lg:hidden">
