@@ -67,7 +67,7 @@ body {
 }
 
 .buttonBounceAnim {
-  animation: buttonBounceKeyframes 6s ease-in-out 0s infinite normal forwards;
+  animation: buttonBounceKeyframes 5s ease-in-out 0s infinite normal;
 }
 
 .buttonBounceAnim:hover {
@@ -84,7 +84,7 @@ body {
   30%,
   50%,
   70% {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
   }
 
   20%,

@@ -90,7 +90,7 @@ export function ExperienceSection({
             </span>
           </p>
         </div>
-        <ResumeButton className="self-start md:shrink-0 md:self-auto" />
+        <ResumeButton className="self-start md:shrink-0 md:self-auto md:w-[350px]" />
       </div>
       <ol aria-label="Work history">
         {items.map((item, index) => (

@@ -428,6 +428,7 @@
       "email": "safadhildev@gmail.com",
       "links": [
         {
+          "visible": true,
           "label": "LinkedIn",
           "url": "https://www.linkedin.com/in/syedahmadfadhil",
           "style": {
@@ -436,6 +437,7 @@
           }
         },
         {
+          "visible": true,
           "label": "YouTube",
           "url": "https://www.youtube.com/@safadhildev",
           "style": {
@@ -444,6 +446,7 @@
           }
         },
         {
+          "visible": true,
           "label": "Github",
           "url": "https://github.com/safadhildev",
           "style": {
@@ -452,6 +455,7 @@
           }
         },
         {
+          "visible": false,
           "label": "Instagram",
           "url": "https://www.instagram.com/safadhildev",
           "style": {

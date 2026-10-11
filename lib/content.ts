@@ -104,6 +104,7 @@ export interface ProjectsContent {
 }
 
 export interface ContactLink {
+  visible: boolean;
   label: string;
   url: string;
   style: {
