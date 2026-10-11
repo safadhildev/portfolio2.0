@@ -301,27 +301,76 @@
       },
       "content": [
         {
-          "id": "project-non-resident-app",
-          "number": "01",
-          "year": "2017",
-          "filename": "non-resident.java",
-          "description": "This is my very first project I've created. The purpose of this app is to ease the students in finding a suitable house to rent during study period. This app should be more reliable than other house finding apps because the data stored (i.e houses and users data) are managed by the admins.",
-          "title": "Non-Resident Digital Project",
-          "skills": ["Java", "Android", "Firebase"],
+          "id": "project-my-tasbih",
+          "year": "2026",
+          "filename": "myTasbih.jsx",
+          "title": "MyTasbih",
+          "description": "A simple, distraction-free digital tasbih for daily dhikr, built with React Native. Count with a tap anywhere on the screen or a swipe gesture, save each session with a name and timestamp, and browse a searchable history showing both Gregorian and Hijri dates. It works fully offline, comes with three themes (Lime, Midnight and Forest), and targets Android 16 with edge-to-edge and 16 KB page size support.",
+          "skills": ["React Native", "JavaScript", "Android"],
           "links": [
             {
-              "type": "youtube",
-              "icon": "youtube",
-              "link": "https://www.youtube.com/watch?v=XP8Wzn-0Y3k&t=5s"
+              "type": "github",
+              "icon": "github",
+              "link": "https://github.com/safadhildev/rnTasbihApp"
             }
           ],
           "windowStyles": {
-            "backgroundColor": "#FF5CAA"
+            "backgroundColor": "#F5E642"
+          }
+        },
+        {
+          "id": "project-e-wedding-invitation",
+          "year": "2022",
+          "filename": "wedding.jsx",
+          "title": "E-Wedding Invitation",
+          "description": "This is my latest project, my e-card wedding invitation. I code this using ReactJS together with Firebase Hosting and Firestore to manage this site. Firestore is to store RSVP and Comments data.",
+          "skills": ["React", "Javascript", "Firebase"],
+          "links": [
+            {
+              "type": "github",
+              "icon": "github",
+              "link": "https://github.com/safadhildev/fadhil-wedding"
+            },
+            {
+              "type": "youtube",
+              "icon": "youtube",
+              "link": "https://www.youtube.com/watch?v=cibuSRK_8FA"
+            },
+            {
+              "type": "open-website",
+              "icon": "external-link",
+              "link": "https://fadhil-wedding.web.app/"
+            }
+          ],
+          "windowStyles": {
+            "backgroundColor": "#66E3B4"
+          }
+        },
+        {
+          "id": "project-weather-app",
+          "year": "2020",
+          "filename": "weather.jsx",
+          "title": "Weather App",
+          "description": "This was an assignment during my Management Trainee Developer programme. This is a simple website where user can check weather on their city. I used OpenWeatherMap API to get the weather data.",
+          "skills": ["React", "JavaScript"],
+          "links": [
+            {
+              "type": "github",
+              "icon": "github",
+              "link": "https://github.com/safadhildev/my-weather-app"
+            },
+            {
+              "type": "youtube",
+              "icon": "youtube",
+              "link": "https://www.youtube.com/watch?v=Vc7FMcUmegs"
+            }
+          ],
+          "windowStyles": {
+            "backgroundColor": "#3D8BFF"
           }
         },
         {
           "id": "project-rating-app",
-          "number": "02",
           "year": "2018",
           "filename": "rating-app.java",
           "title": "Restaurant Rating App",
@@ -339,46 +388,21 @@
           }
         },
         {
-          "id": "project-weather-app",
-          "number": "03",
-          "year": "2020",
-          "filename": "weather.jsx",
-          "title": "Weather App",
-          "description": "This was an assignment during my Management Trainee Developer programme. This is a simple website where user can check weather on their city. I used OpenWeatherMap API to get the weather data.",
-          "skills": ["React", "JavaScript"],
+          "id": "project-non-resident-app",
+          "year": "2017",
+          "filename": "non-resident.java",
+          "description": "This is my very first project I've created. The purpose of this app is to ease the students in finding a suitable house to rent during study period. This app should be more reliable than other house finding apps because the data stored (i.e houses and users data) are managed by the admins.",
+          "title": "Non-Resident Digital Project",
+          "skills": ["Java", "Android", "Firebase"],
           "links": [
             {
               "type": "youtube",
               "icon": "youtube",
-              "link": "https://www.youtube.com/watch?v=Vc7FMcUmegs"
+              "link": "https://www.youtube.com/watch?v=XP8Wzn-0Y3k&t=5s"
             }
           ],
           "windowStyles": {
-            "backgroundColor": "#3D8BFF"
-          }
-        },
-        {
-          "id": "project-e-wedding-invitation",
-          "number": "04",
-          "year": "2022",
-          "filename": "wedding.jsx",
-          "title": "E-Wedding Invitation",
-          "description": "This is my latest project, my e-card wedding invitation. I code this using ReactJS together with Firebase Hosting and Firestore to manage this site. Firestore is to store RSVP and Comments data.",
-          "skills": ["React", "Javascript", "Firebase"],
-          "links": [
-            {
-              "type": "youtube",
-              "icon": "youtube",
-              "link": "https://www.youtube.com/watch?v=cibuSRK_8FA"
-            },
-            {
-              "type": "open-website",
-              "icon": "external-link",
-              "link": "https://fadhil-wedding.web.app/"
-            }
-          ],
-          "windowStyles": {
-            "backgroundColor": "#66E3B4"
+            "backgroundColor": "#FF5CAA"
           }
         }
       ]
