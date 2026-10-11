@@ -9,7 +9,8 @@ const SOCIAL_ICONS: Record<string, ReactNode> = {
   LinkedIn: <Icon name="linkedin" size={20} alt="LinkedIn" />,
   YouTube: <Icon name="youtube" color="#FFFFFF"  size={20} alt="YouTube" />,
   Github: <Icon name="github" size={20} alt="GitHub" />,
-  Instagram: <span className="font-mono text-[11px] font-bold">IG</span>,
+  Instagram: <Icon name="instagram" size={20} color="#FFFFFF" alt="Instagram" />,
+  // Instagram: <span className="font-mono text-[11px] font-bold">IG</span>,
 };
 
 interface ContactSectionProps {
@@ -18,6 +19,9 @@ interface ContactSectionProps {
 }
 
 export function ContactSection({ contact, number }: ContactSectionProps) {
+
+  const visibleLinks = contact.links.filter((link) => link.visible);
+
   return (
     <section id="contact" className="py-10 md:pb-16">
       <div className="mb-6 md:mb-9" data-aos="fade-up">
@@ -46,7 +50,7 @@ export function ContactSection({ contact, number }: ContactSectionProps) {
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
-            {contact.links.map((link) => (
+            {visibleLinks.map((link) => (
               <SocialActionButton
                 key={link.label}
                 href={link.url}

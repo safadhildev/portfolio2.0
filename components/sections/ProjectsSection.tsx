@@ -11,7 +11,7 @@ export function ProjectsSection({ projects, number }: ProjectsSectionProps) {
   return (
     <section
       id="projects"
-      className="py-10 md:py-10 scroll-mt-14 lg:scroll-mt-[70px]"
+      className="py-10 md:py-10 scroll-mt-10 lg:scroll-mt-[70px]"
     >
       <div
         className="mb-8 flex flex-wrap items-end justify-between gap-3 md:mb-11"
