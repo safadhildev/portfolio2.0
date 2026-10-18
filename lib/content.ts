@@ -71,7 +71,7 @@ export interface Project {
   windowStyles: {
     backgroundColor: string;
   };
-  thumbnail?: string;
+  thumbnail?: string | null;
   href?: string;
 }
 
