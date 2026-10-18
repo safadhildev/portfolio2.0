@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { WindowChrome } from "@/components/ui/WindowChrome";
 import { TechTag } from "@/components/ui/TechTag";
@@ -51,6 +54,7 @@ function ThumbnailPlaceholder({
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const accentColor = project.windowStyles.backgroundColor;
+  const [thumbnailFailed, setThumbnailFailed] = useState(false);
   const thumbnailLabel = `${project.filename.replace(/\.[^.]+$/, "")}.png`;
 
   return (
@@ -60,7 +64,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       className={`relative h-full ${project.href ? "cursor-pointer btn-press" : ""}`}
       bodyClassName="flex flex-col transition-transform duration-100"
     >
-      {project.thumbnail ? (
+      {project.thumbnail && !thumbnailFailed ? (
         <div className="relative aspect-video w-full overflow-hidden border-b-[3px] border-ink">
           <Image
             src={project.thumbnail}
@@ -68,6 +72,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             fill
             sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
             className="object-cover"
+            onError={() => setThumbnailFailed(true)}
           />
         </div>
       ) : (
