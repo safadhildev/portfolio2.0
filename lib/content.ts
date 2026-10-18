@@ -71,6 +71,8 @@ export interface Project {
   windowStyles: {
     backgroundColor: string;
   };
+  thumbnail?: string;
+  href?: string;
 }
 
 export interface ExperienceEntry {

@@ -9,6 +9,8 @@ import {
 export const RESUME_FILE = "Syed-Ahmad-Fadhil-Resume.pdf";
 export const RESUME_ROUTE = "/resume";
 
+export const PROJECTS_ROUTE = "https://www.kodsantai.com/projects";
+
 export type SkillGroupKey = "languages" | "frameworks" | "cloud" | "tools";
 export type ResumeSectionKind =
   | "experience"
@@ -116,7 +118,9 @@ function stripScheme(url: string): string {
   return url.replace(/^https?:\/\//i, "").replace(/\/$/, "");
 }
 
-function buildSkillGroups(c: PortfolioContent): ResumeSection & { kind: "skills" } {
+function buildSkillGroups(
+  c: PortfolioContent,
+): ResumeSection & { kind: "skills" } {
   const { skills } = c.skills;
   const buckets: Record<SkillGroupKey, string[]> = {
     languages: [],

@@ -316,7 +316,9 @@
           ],
           "windowStyles": {
             "backgroundColor": "#F5E642"
-          }
+          },
+          "thumbnail": "/projects/mytasbih/thumbnail.webp",
+          "href": "https://www.kodsantai.com/projects/mytasbih"
         },
         {
           "id": "project-e-wedding-invitation",
@@ -344,7 +346,9 @@
           ],
           "windowStyles": {
             "backgroundColor": "#66E3B4"
-          }
+          },
+          "thumbnail": "/projects/ewedding/thumbnail.webp",
+          "href": "https://www.kodsantai.com/projects/eWedding"
         },
         {
           "id": "project-weather-app",
@@ -367,7 +371,9 @@
           ],
           "windowStyles": {
             "backgroundColor": "#3D8BFF"
-          }
+          },
+          "thumbnail": "/projects/reactweatherapp/thumbnail.webp",
+          "href": "https://www.kodsantai.com/projects/reactweatherapp"
         },
         {
           "id": "project-rating-app",
@@ -385,7 +391,9 @@
           ],
           "windowStyles": {
             "backgroundColor": "#FFD84D"
-          }
+          },
+          "thumbnail": "/projects/restaurantratingapp/thumbnail.webp",
+          "href": "https://www.kodsantai.com/projects/restaurantratingapp"
         },
         {
           "id": "project-non-resident-app",
@@ -403,7 +411,9 @@
           ],
           "windowStyles": {
             "backgroundColor": "#FF5CAA"
-          }
+          },
+          "thumbnail": "/projects/nonresidentapp/thumbnail.webp",
+          "href": "https://www.kodsantai.com/projects/nonresidentapp"
         }
       ]
     },
