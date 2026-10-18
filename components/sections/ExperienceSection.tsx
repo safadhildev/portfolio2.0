@@ -1,9 +1,11 @@
-import { ResumeButton } from "@/components/ui/ResumeButton";
+
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { iconSources } from "@/components/ui/icon-sources";
 import type { ExperienceContent, SkillsContent } from "@/lib/content";
-import { buildExperienceView } from "@/lib/experience";
 import type { ExperienceItemView } from "@/lib/experience";
+import { buildExperienceView } from "@/lib/experience";
+import { RESUME_ROUTE } from "@/lib/resume";
+import { Button } from "../ui/Button";
 import { ExperienceCard } from "./ExperienceCard";
 
 const AVAILABLE_ICONS: ReadonlySet<string> = new Set(Object.keys(iconSources));
@@ -90,7 +92,7 @@ export function ExperienceSection({
             </span>
           </p>
         </div>
-        <ResumeButton className="self-start md:shrink-0 md:self-auto md:w-[350px]" />
+        <Button className="self-start md:shrink-0 md:self-auto md:w-[350px]"  text="View My Resume" href={RESUME_ROUTE} icon="external-link" />
       </div>
       <ol aria-label="Work history">
         {items.map((item, index) => (

@@ -21,6 +21,12 @@ build), using Tailwind CSS responsive variants.
   deliberate choice — the portfolio has no CMS UI in the design and only the owner edits content,
   so a JSON file read server-side is simpler than standing up Supabase + API routes for content
   that changes rarely. Revisit this only if the owner wants to edit content without redeploying.
+- **Counters** (content stays static JSON): the `/resume` open counter lives in Upstash Redis
+  (production only, server-side, salted per-day visitor hash). The site visitor total in the status
+  footer is not stored by us: `/api/visits` reads the lifetime `visitors` figure from the Vercel Web
+  Analytics API (`visits/count`) with a server-only token, CDN-cached for 5 minutes, and the footer
+  hides it if the env is missing or the API fails. Visitors whose ad blocker stops the analytics
+  script are not counted.
 - **Fonts**: Space Grotesk (headings/body), JetBrains Mono (UI labels/status text), Courier Prime
   (About/README body copy) — all via `next/font/google`, wired in `app/layout.tsx`.
 - All icon/asset SVGs were downloaded from Figma (not redrawn) into `public/icons/`, per the
